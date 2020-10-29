@@ -25,12 +25,16 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */ 
 
+use Flarum\Extend;
 use ISAA\OpenGraph\OpenGraph as OG;
 use Flarum\Event\PostWillBeSaved;
 use Illuminate\Contracts\Events\Dispatcher;
+use Flarum\Api\Event\Serializing;
+use s9e\TextFormatter\Configurator;
 
-return function (Dispatcher $events) {
-	$events->listen(PostWillBeSaved::class, function (PostWillBeSaved $event) {
+return [
+    (new Extend\Frontend('forum'))
+        ->content(function (Document $document) {
 		
 		$found = preg_match('#(https?://(\S*?\.\S*?))([\s)\[\]{},;"\':<]|\.\s|$)#i',$event->post->content,$matches);
 		if (!$found) return;
@@ -62,3 +66,5 @@ return function (Dispatcher $events) {
 
 	});
 };
+	        })
+];
