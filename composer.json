@@ -1,5 +1,5 @@
 {
-    "name": "isaa/flarum-isaa-opengraph",
+    "name": "davynoa/ogg",
     "description": "Opengraph for flarum.",
     "type": "flarum-extension",
     "keywords": ["opengraph", "flarum", "embedding"],
@@ -13,16 +13,21 @@
     },
     "minimum-stability": "dev",
     "require": {
-        "flarum/core": "^0.1.0-beta.5"
+        "flarum/core": "^0.1.0-beta.8"
     },
     "extra": {
         "flarum-extension": {
-            "title": "OpenGraph"
+            "title": "elint",
+            "icon": {
+                "name": "fas fa-ghost",
+                "backgroundColor": "#ddd",
+                "color": "#000"
+            }
         }
     },
     "autoload": {
         "psr-4": {
-          "ISAA\\OpenGraph\\": "src/"
+          "Davynoa\\OpenGraph\\": "src/"
         }
     }
 }
