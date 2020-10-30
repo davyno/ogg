@@ -1,5 +1,5 @@
 {
-    "name": "davynoa/ogg",
+    "name": "davyno/ogg",
     "description": "Opengraph for flarum.",
     "type": "flarum-extension",
     "keywords": ["opengraph", "flarum", "embedding"],
