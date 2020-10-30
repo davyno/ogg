@@ -1,5 +1,5 @@
 <?php
-namespace ISAA\OpenGraph;
+namespace Davynoa\OpenGraph;
 use Iterator;
 use DomDocument;
 use DOMXPath;
