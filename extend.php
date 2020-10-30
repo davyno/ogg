@@ -26,17 +26,15 @@ SOFTWARE.
 */ 
 
 use Flarum\Extend;
-use ISAA\OpenGraph\OpenGraph as OG;
+use Davyno\OpenGraph\OpenGraph as OG;
 use Flarum\Event\PostWillBeSaved;
 use Illuminate\Contracts\Events\Dispatcher;
-use Flarum\Api\Event\Serializing;
-use s9e\TextFormatter\Configurator;
 
 return [
-    (new Extend\Frontend('forum'))
+(new Extend\Frontend('forum'))
         ->content(function (Document $document) {
-		
-		$found = preg_match('#(https?://(\S*?\.\S*?))([\s)\[\]{},;"\':<]|\.\s|$)#i',$event->post->content,$matches);
+            $document->foot[] = <<<HTML
+			$found = preg_match('#(https?://(\S*?\.\S*?))([\s)\[\]{},;"\':<]|\.\s|$)#i',$event->post->content,$matches);
 		if (!$found) return;
 		
 		$aux = new OG();
@@ -62,9 +60,8 @@ return [
 		$text .= "---" . PHP_EOL . PHP_EOL;
 		*/ 
 		
-		$event->post->content .= PHP_EOL . PHP_EOL . $text;
+		$event->post->content .= PHP_EOL . PHP_EOL . $text;	
 
-	});
-};
-	        })
+HTML;
+	})
 ];
